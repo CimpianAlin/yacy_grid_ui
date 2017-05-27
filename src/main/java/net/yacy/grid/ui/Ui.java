@@ -25,6 +25,7 @@ import java.util.List;
 import javax.servlet.Servlet;
 
 import net.yacy.grid.YaCyServices;
+import net.yacy.grid.mcp.MCP;
 import net.yacy.grid.mcp.Service;
 
 public class Ui {
@@ -42,6 +43,7 @@ public class Ui {
     
     public static void main(String[] args) {
         List<Class<? extends Servlet>> services = new ArrayList<>();
+        services.addAll(Arrays.asList(MCP.MCP_SERVICES));
         services.addAll(Arrays.asList(LOADER_SERVICES));
         Service.runService(SERVICE, DATA_PATH, APP_PATH, HTML_PATH, services);
     }
